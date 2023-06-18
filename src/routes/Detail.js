@@ -37,10 +37,11 @@ function Detail() {
           </ul>
           <p>
             (줄거리)
+            <br />
             {infos.description_full ? (
-              <p>{infos.description_full}</p>
+              <span>{infos.description_full}</span>
             ) : (
-              <p>줄거리 정보가 없습니다.</p>
+              <span>줄거리 정보가 없습니다.</span>
             )}
           </p>
         </div>
