@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import styles from './Detail.module.css';
 function Detail() {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -23,27 +23,27 @@ function Detail() {
       {loading ? (
         <h1>detail loading...</h1>
       ) : (
-        <div>
+        <div className={styles.content}>
           <h2>
-            {infos.title} ({infos.year})/{infos.rating}
+            {infos.title} ({infos.year})
           </h2>
-          <img src={infos.medium_cover_image} alt={infos.title} />
-          <p></p>
-          <ul>
-            (장르)
-            {infos.genres.map((h) => (
-              <li key={h}>{h}</li>
-            ))}
-          </ul>
-          <p>
-            (줄거리)
-            <br />
-            {infos.description_full ? (
-              <span>{infos.description_full}</span>
-            ) : (
-              <span>줄거리 정보가 없습니다.</span>
-            )}
-          </p>
+          <div className={styles.content_box}>
+            <img src={infos.medium_cover_image} alt={infos.title} />
+            <p>⭐️ {infos.rating}</p>
+            <ul className={styles.detail_genres}>
+              {infos.genres.map((h) => (
+                <li key={h}>{h} </li>
+              ))}
+            </ul>
+            <p className={styles.detail_info}>
+              <br />
+              {infos.description_full ? (
+                <span>{infos.description_full}</span>
+              ) : (
+                <span>줄거리 정보가 없습니다.</span>
+              )}
+            </p>
+          </div>
         </div>
       )}
     </div>

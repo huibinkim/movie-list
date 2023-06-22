@@ -1,29 +1,43 @@
 import { useEffect, useState } from 'react';
+// import { useParams } from 'react-router-dom';
 import Movie from '../components/Movie';
 import Navigation from '../components/Navigation';
+// import { listPageReLoading, focusNav } from '../atom/atoms';
+// import { useRecoilState, useSetRecoilState } from 'recoil';
+// import axios from 'axios';
 import styles from './Home.module.css';
 
+// const listNums = [...Array(10)].map((_, i) => i + 1);
 function Home() {
+  // const { num, detail } = useParams();
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  // const [reloading, setReloading] = useRecoilState(listPageReLoading);
+  // const focusPage = useSetRecoilState(focusNav);
+
   const getMovies = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=7&sort_by=year`
+        `https://yts.mx/api/v2/list_movies.json?&limit=10&sort_by=year`
       )
     ).json();
+    // console.log(json.data.limit);
     setMovies(json.data.movies);
     setLoading(false);
   };
+
   useEffect(() => {
     getMovies();
+    console.log(getMovies);
   }, []);
   console.log(movies);
   return (
     <div className={styles.container}>
       {loading ? (
         <div className={styles.loader}>
-          <span>Loading...</span>
+          <span>
+            <b>LOADING...</b>
+          </span>
         </div>
       ) : (
         <div className={styles.movies_con}>
