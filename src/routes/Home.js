@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Movie from '../components/Movie';
+import Navigation from '../components/Navigation';
 import styles from './Home.module.css';
 
 function Home() {
@@ -39,6 +40,11 @@ function Home() {
                 summary={movie.summary}
                 rating={movie.rating}
               />
+            ))}
+          </div>
+          <div>
+            {movies.map((movie) => (
+              <Navigation key={movie.id} id={movie.id} />
             ))}
           </div>
         </div>
