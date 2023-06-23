@@ -13,7 +13,7 @@ function Navigation({ id }) {
       <Link className={styles.navRating} to={`/movie:${id}`}>
         Rating
       </Link>
-      <Link className={styles.navRating} to={`/movie:${id}`}>
+      <Link className={styles.navRating} to={`/music`}>
         Music
       </Link>
       <Link className={styles.navRating} to={`/movie:${id}`}>

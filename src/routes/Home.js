@@ -1,20 +1,26 @@
 import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
 import Movie from '../components/Movie';
 import Navigation from '../components/Navigation';
 // import { listPageReLoading, focusNav } from '../atom/atoms';
 // import { useRecoilState, useSetRecoilState } from 'recoil';
 // import axios from 'axios';
 import styles from './Home.module.css';
+// import Post from './Post';
 
 // const listNums = [...Array(10)].map((_, i) => i + 1);
 function Home() {
-  // const { num, detail } = useParams();
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  // const [reloading, setReloading] = useRecoilState(listPageReLoading);
-  // const focusPage = useSetRecoilState(focusNav);
-
+  // const [page, setPage] = useState(1);
+  // const limit = 10;
+  // const offset = (page - 1) * limit;
+  // const postsData = (posts) => {
+  //   if (posts) {
+  //     let result = posts.slice(offset, offset + limit);
+  //     return result;
+  //   }
+  // };
+  // const [contentInfo, setContentInfo] = useState([]);
   const getMovies = async () => {
     const json = await (
       await fetch(
@@ -57,10 +63,12 @@ function Home() {
             ))}
           </div>
           <div>
-            {movies.map((movie) => (
+            <Navigation />
+            {/* {movies.map((movie) => (
               <Navigation key={movie.id} id={movie.id} />
-            ))}
+            ))} */}
           </div>
+          {/* <Post info={contentInfo}></Post> */}
         </div>
       )}
     </div>
