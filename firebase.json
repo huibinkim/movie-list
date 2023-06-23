@@ -9,10 +9,7 @@
         "firebase-debug.log",
         "firebase-debug.*.log"
       ],
-      "redeploy": [
-        "npm --prefix \"%RESOURCE_DIR%\" run lint",
-        "npm --prefix \"%RESOURCE_DIR%\" run build"
-      ]
+      "redeploy": ["npm --prefix \"%RESOURCE_DIR%\" run lint"]
     }
   ],
   "database": {
