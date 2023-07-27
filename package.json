@@ -17,13 +17,15 @@
     "recoil": "^0.7.7",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://huibinkim.github.io/movie-list/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:develop": "webpack",
-    "build:master": "NODE_ENV=production webpack"
+    "build:master": "NODE_ENV=production webpack",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
